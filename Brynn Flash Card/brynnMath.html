@@ -168,8 +168,10 @@ if (currentQuestion == totalQuestions)
         $("#rejoinder").text("Correct!");
         totalCorrect++;
         console.log("Last Question, totalCorrect incremented, Value of totalCorrect now equals: "+totalCorrect);
+        if (((totalCorrect + totalIncorrect)==totalQuestions) && (totalQuestions>0)){
         $("#submitButton").css('display','none');
         $("#showResults").css('display','block');
+      }
       }
       else
       {
@@ -193,8 +195,11 @@ if (currentQuestion == totalQuestions)
           console.log("last Question,tc equals 3 -- incorrect answer try counter equals "+tryCounter);
           totalIncorrect++;
           $("#rejoinder").text("Sorry, but the correct answer is "+correctAnswer+". We would try another question but this is the last question in this quiz.");
+
+          if (((totalCorrect + totalIncorrect)==totalQuestions) && (totalQuestions>0)){
+          
           $("#submitButton").css('display','none');
-          $("#showResults").css('display','block');
+          $("#showResults").css('display','block');}
         }
         else{console.log("Last Question,Try Counter out of bounds in the final question.");}
       console.log("Last Question,incorrect answer, try counter equals: "+tryCounter);
