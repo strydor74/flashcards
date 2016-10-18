@@ -16,11 +16,11 @@ Brynn's Math Page
 
 $( document ).ready(function() {
     console.log( "ready!" );
-// Mel added this test comment.
+
 
 var multiplier;
 var multiplicand;
-var tryCounter;
+var tryCounter = 0;
 var correctAnswer;
 var totalIncorrect = 0;
 var totalCorrect = 0;
@@ -92,7 +92,7 @@ function showResults(){
     console.log("Leaving showResults funtion block, value of current question is is: "+currentQuestion);
 }
 
-initPage();
+
 
 function myFunction(theAnswer) 
 {
@@ -105,11 +105,13 @@ function myFunction(theAnswer)
       if (theAnswer == correctAnswer)
       {
         $("#rejoinder").text("Correct!");
-        totalCorrect++;currentQuestion++;
+        totalCorrect++;
+        currentQuestion++;
+        //++currentQuestion;
         console.log("Increment totalCorrect, value now :"+totalCorrect);
         $("#nextQuestion").css('display','block');
         $("#submitButton").css('display','none');
-        $("#nextQuestion").click(function(){initPage();});
+        
       }
       else
       { 
@@ -119,36 +121,40 @@ function myFunction(theAnswer)
             $("#rejoinder").text("Sorry, but "+theAnswer+" isn't correct. Try again.");
             firstAnswer = theAnswer;
           }
-        else if (tryCounter == 2)
+        if (tryCounter == 2)
           {
           if (theAnswer != firstAnswer)
             $("#rejoinder").text("Sorry, but "+theAnswer+" isn't correct. Nor was your first answer of "+firstAnswer+". Try again.");
           else
             $("#rejoinder").text("Sorry, but "+theAnswer+" was what you answered for your first attempt. One more try.");
           }
-        else if (tryCounter == 3)
+        if (tryCounter == 3)
           {
             $("#rejoinder").text("Sorry, but the correct answer is "+correctAnswer+". Let's try another question.");
             $("#nextQuestion").css('display','block');
             $("#submitButton").css('display','none');
             totalIncorrect++;
             currentQuestion++;
+            //++currentQuestion;
             console.log("Increment totalInorrect, value now :"+totalIncorrect);
-            $("#nextQuestion").click(function(){initPage();});
+            
           }
         else{console.log("Try Counter out of bounds.");}
       }
     }
-  
-  }tryCounter++;console.log("increased tryCounter in question less than max if block, value now: "+tryCounter);
+  //++tryCounter;
+  tryCounter++;
+  console.log("increased tryCounter in question less than max if block, value now: "+tryCounter);
   //currentQuestion++;
 console.log("after incrementing current question, value is: "+currentQuestion);
+  }
 
 /*
 Separate compound if statement and put logic in to show the show result button, and then reset page after a correct answer for the last question, or 3 incorrect responses. Verify that the data calculates and displays correctly.
 */
   
-  if ((currentQuestion == totalQuestions) && ((totalCorrect + totalIncorrect)==totalQuestions))
+if (currentQuestion == totalQuestions)
+ //if ((currentQuestion == totalQuestions) && ((totalCorrect + totalIncorrect)==totalQuestions))
   {
     console.log("last Question,Entered else if current == total");
     if (tryCounter <= 3)
@@ -161,6 +167,7 @@ Separate compound if statement and put logic in to show the show result button, 
         totalCorrect++;
         console.log("Last Question, totalCorrect incremented, Value of totalCorrect now equals: "+totalCorrect);
         $("#submitButton").css('display','none');
+        $("#showResults").css('display','block');
       }
       else
       {
@@ -171,7 +178,7 @@ Separate compound if statement and put logic in to show the show result button, 
           $("#rejoinder").text("Sorry, but "+theAnswer+" isn't correct. Try again.");
           firstAnswer = theAnswer;
         }
-        else if (tryCounter == 2)
+        if (tryCounter == 2)
         {
           console.log("last Question,tc equals 2 -- incorrect answer try counter equals "+tryCounter);
         if (theAnswer != firstAnswer)
@@ -179,18 +186,19 @@ Separate compound if statement and put logic in to show the show result button, 
         else
           $("#rejoinder").text("Sorry, but "+theAnswer+" was what you answered for your first attempt. One more try.");
         }
-        else if (tryCounter == 3)
+        if (tryCounter == 3)
         {
           console.log("last Question,tc equals 3 -- incorrect answer try counter equals "+tryCounter);
+          totalIncorrect++;
           $("#rejoinder").text("Sorry, but the correct answer is "+correctAnswer+". We would try another question but this is the last question in this quiz.");
           $("#submitButton").css('display','none');
-          totalIncorrect++;
           $("#showResults").css('display','block');
         }
-        else{console.log("Last Question,Try Counter out of bounds in the final question.");
-      console.log("Last Question,incorrect answer, try counter equals: "+tryCounter);}
+        else{console.log("Last Question,Try Counter out of bounds in the final question.");}
+      console.log("Last Question,incorrect answer, try counter equals: "+tryCounter);
         
       }
+      //++tryCounter;
       tryCounter++;
       console.log("last Question,increased try counter in current question is max question, value of try counter now: "+tryCounter);
       console.log("last Question,exit else if trycounter leq 3, value of trycounter is:  "+tryCounter);
@@ -211,6 +219,12 @@ $("#tryAgain").click(function(){
 $("#showResults").click(function(){
    showResults();
 });
+
+$("#nextQuestion").click(function(){
+  initPage();
+});
+
+initPage();
 
 });//end document ready
 </script>
