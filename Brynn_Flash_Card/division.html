@@ -1,48 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>
-Brynn's Math Page
-</title>
-
+<title>Division - Choose Difficulty | Brynn's Math Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="mathui.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
-    console.log( "ready!" );
-
-    var nextURL = $("input[type=radio]:checked").val();
-
-    $("input[type=radio]").click(function() 
-    {
-  	nextURL = $(this).val();
-  	console.log(nextURL);
-	});
-
-	$("form#operationMenu").submit(function( event ) 
-	{
-  		//console.log("submitting " + nextURL);
-  		window.open(nextURL, '_blank');
- 		event.preventDefault();
-	});
 
 });//end document ready
 </script>
 </head>
 
 <body>
-<div id="mainDiv">
-<span id="choiceTopic">What difficlty level would you like? </span>
-<span id="choiceMenu">
-	<form id="difficultyMenu" action="#">
-  		<label><input type="radio" name="operation" class="lvl_1" value="division1.html" checked> Level 1<br/></label>
-  		<label><input type="radio" name="operation" class="lvl_2" value="division2.html"> Level 2<br/></label>
-  		<label><input type="radio" name="operation" class="lvl_3" value="division3.html"> Level 3<br/></label>
-  		<input type="submit" value="Submit">
-	</form>
-</span>
-
-</div>
+	<main id="mainDiv">
+		<div id="choiceMenu">
+			<form id="operationMenu" action="#">
+				<fieldset>
+					<legend id="choiceTopic">What difficulty level would you like? </legend>
+  					<label><input type="radio" name="operation" class="lvl_1" value="division_lvl1.html" checked> Level 1<br/></label>
+  					<label><input type="radio" name="operation" class="lvl_2" value="division_lvl2.html"> Level 2<br/></label>
+  					<label><input type="radio" name="operation" class="lvl_3" value="division_lvl3.html"> Level 3<br/></label>
+  		</fieldset>
+  				<input type="submit" value="Get Started!"/>
+			</form>
+		</div>
+	</main>
 </body>
 </html>
