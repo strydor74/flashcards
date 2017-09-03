@@ -111,6 +111,7 @@ $(document).ready(function() {
 	    $("#showResults").css('display','none');
 	    $("#nextQuestion").css('display','none');
 	    $("#tryAgain").css('display','block');
+	    $("#tryAgain").focus();
 	    $("#question").css('display', 'none');
 	    $("#problem").css('display', 'none');
 	    $("#submitAnswer").css('display','none');	    
@@ -128,6 +129,7 @@ $(document).ready(function() {
 			        $("#rejoinder").text("Correct!");
 			        totalCorrect++;			        
 			        $("#nextQuestion").css('display','block');
+			        $("#nextQuestion").focus();
 			        $("#submitButton").css('display','none');
 	        	}
 	      		else
@@ -149,6 +151,7 @@ $(document).ready(function() {
 		          	{
 			            $("#rejoinder").text("Sorry, but the correct answer is "+correctAnswer+". Let's try another question.");
 			            $("#nextQuestion").css('display','block');
+			            $("#nextQuestion").focus();
 			            $("#submitButton").css('display','none');
 			            totalIncorrect++;
 		            }
@@ -168,6 +171,7 @@ $(document).ready(function() {
 			        if (((totalCorrect + totalIncorrect)==totalQuestions) && (currentQuestion>0)&&(currentQuestion==totalQuestions))
 			        {
 			        	$("#showResults").css('display','block');
+			        	$("#showResults").focus();
 			       		$("#submitButton").css('display','none');
 			       		$("#nextQuestion").css('display','none');
 			        }
@@ -194,6 +198,7 @@ $(document).ready(function() {
 				      	if (((totalCorrect + totalIncorrect)==totalQuestions) && (currentQuestion>0)&&(currentQuestion==totalQuestions))
 				      	{
 				          	$("#showResults").css('display','block');
+				          	$("#showResults").focus();
 				          	$("#submitButton").css('display','none');
 				          	$("#nextQuestion").css('display','none');
 				      	}
@@ -208,6 +213,13 @@ $(document).ready(function() {
 	  	myAnswer = $("#submitAnswer").val();
 	   	myFunction(myAnswer);
 	});//end submit button click
+	
+	$('#submitAnswer').on('keypress', function (e) {
+         if(e.which === 13){
+            myAnswer = $("#submitAnswer").val();
+	   		myFunction(myAnswer);
+         }
+   });
 
 	$("#tryAgain").click(function(){
 	   	resetPage();
