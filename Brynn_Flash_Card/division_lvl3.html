@@ -21,8 +21,10 @@ $(document).ready(function() {
 
 	var divisor1, divisor2, product, quotient, multiplier, multiplicand, randNum1, randNum2, sum, diff;
 	var swap = 0;
-	var LOWRANGE = 110;
-	var HIRANGE = 50000;
+	var LOWRANGE_NUM1 = 10;
+	var HIRANGE_NUM1 = 100;
+	var LOWRANGE_NUM2 = 10000;
+	var HIRANGE_NUM2 = 100000;
 	var tryCounter = 0;
 	var correctAnswer;
 	var totalIncorrect = 0;
@@ -51,9 +53,9 @@ $(document).ready(function() {
 
 	function initPage() {
 		currentQuestion++;
-		randNum1 = getRandomInt(LOWRANGE,HIRANGE);
+		randNum1 = getRandomInt(LOWRANGE_NUM1,HIRANGE_NUM1);
 		console.log( "randNum1: "+randNum1 );
-		randNum2 = getRandomInt(LOWRANGE,HIRANGE);
+		randNum2 = getRandomInt(LOWRANGE_NUM2,HIRANGE_NUM2);
 		console.log( "randNum2: "+randNum2 );
 		
 		

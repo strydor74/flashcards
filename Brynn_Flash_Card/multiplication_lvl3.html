@@ -20,8 +20,10 @@ $(document).ready(function() {
     console.log( "ready!" );
 
 	var divisor1, divisor2, product, quotient, multiplier, multiplicand, randNum1, randNum2;
-	var LOWRANGE = 101;
-	var HIRANGE = 999;
+	var LOWRANGE_NUM1 = 101;
+	var HIRANGE_NUM1 = 999;
+	var LOWRANGE_NUM2 = 101;
+	var HIRANGE_NUM2 = 999;
 	var tryCounter = 0;
 	var correctAnswer;
 	var totalIncorrect = 0;
@@ -50,23 +52,23 @@ $(document).ready(function() {
 
 	function initPage() {
 		currentQuestion++;
-		randNum1 = getRandomInt(LOWRANGE,HIRANGE);
-		randNum2 = getRandomInt(LOWRANGE,HIRANGE);
+		randNum1 = getRandomInt(LOWRANGE_NUM1,HIRANGE_NUM1);
+		console.log( "randNum1: "+randNum1 );
+		randNum2 = getRandomInt(LOWRANGE_NUM2,HIRANGE_NUM2);
+		console.log( "randNum2: "+randNum2 );
+		tryCounter = 1;
+		if (randNum1 < randNum2)
+		{
+			swap = randNum1;
+			randNum1 = randNum2;
+			randNum2 = swap;
+		}
 		multiplier = randNum1;
 		multiplicand = randNum2;
-		//product = (multiplier * multiplicand);
-		//quotient = (product / multiplier);
-		//divisor1 = multiplier;
-		//divisor2 = multiplicand;
-		tryCounter = 1;
 		$("#multiplicand").text(multiplicand);
 		$("#multiplier").text(multiplier);
-		//if (menuChoice == multiplication) {
 		
-		correctAnswer = (multiplier * multiplicand); //replace with product }
-
-		//elseif (menuchoice == division){
-		//correctAnswer = quotient}
+		correctAnswer = (multiplier * multiplicand); 
 		$("#correctAnswer").text(correctAnswer);
 		$("#currentQuestion").css('display','inline');
 		$("#currentQuestion").text(currentQuestion);
