@@ -1,0 +1,44 @@
+function initPage() {
+		currentQuestion++;
+		randNum1 = getRandomInt(LOWRANGE_num1,HIRANGE_num1);
+		console.log( "randNum1: "+randNum1 );
+		randNum2 = getRandomInt(LOWRANGE_num2,HIRANGE_num2);
+		console.log( "randNum2: "+randNum2 );
+		
+		
+		
+		console.log( "sum: "+sum );
+		tryCounter = 1;
+		if (randNum1 < randNum2)
+		{
+			swap = randNum1;
+			randNum1 = randNum2;
+			randNum2 = swap;
+		}
+		console.log( "randNum1: "+randNum1 );
+		console.log( "randNum2: "+randNum2 );
+		sum = (randNum1 + randNum2);
+		multiplier = randNum2;
+		multiplicand = randNum1;
+		console.log( "multiplier = randNum2: "+multiplier );
+		console.log( "multiplicand = randNum1: "+multiplicand );
+		$("#multiplicand").text(multiplicand);
+		$("#multiplier").text(multiplier);
+		
+		correctAnswer = (multiplier + multiplicand);
+		console.log( "correctAnswer: "+correctAnswer );
+
+		$("#correctAnswer").text(correctAnswer);
+		$("#currentQuestion").css('display','inline');
+		$("#currentQuestion").text(currentQuestion);
+		$("#submitAnswer").css('display','block');
+		$("#submitButton").css('display','block');
+		$("#nextQuestion").css('display','none');
+		$("#problem").css('display', 'block');
+		$("#tryAgain").css('display','none');
+		$("#showResults").css('display','none');
+		$("#question").css('display', 'block');
+		$("#qtext").css('display', 'inline');
+		$("#submitAnswer").val("").focus();
+		$("#rejoinder").text("");
+	}

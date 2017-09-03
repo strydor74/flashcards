@@ -20,8 +20,10 @@ $(document).ready(function() {
     console.log( "ready!" );
 
 	var divisor1, divisor2, product, quotient, multiplier, multiplicand, randNum1, randNum2, sum, diff, swap;
-	var LOWRANGE = 1000;
-	var HIRANGE = 10000;
+	var LOWRANGE_NUM1 = 1000;
+	var HIRANGE_NUM1 = 10000;
+	var LOWRANGE_NUM2 = 1000;
+	var HIRANGE_NUM2 = 10000;
 	var tryCounter = 0;
 	var correctAnswer;
 	var totalIncorrect = 0;
@@ -50,8 +52,10 @@ $(document).ready(function() {
 
 	function initPage() {
 		currentQuestion++;
-		randNum1 = getRandomInt(LOWRANGE,HIRANGE);
-		randNum2 = getRandomInt(LOWRANGE,HIRANGE);
+		randNum1 = getRandomInt(LOWRANGE_NUM1,HIRANGE_NUM1);
+		console.log( "randNum1: "+randNum1 );
+		randNum2 = getRandomInt(LOWRANGE_NUM2,HIRANGE_NUM2);
+		console.log( "randNum2: "+randNum2 );
 		multiplier = randNum1;
 		multiplicand = randNum2;
 		sum = randNum1 + randNum2;
@@ -236,7 +240,7 @@ $(document).ready(function() {
 <input type="text" id="submitAnswer" />
 
 <br/><br/>
-<button type="button" id="submitButton">Submit</button><button type="button" id="nextQuestion">Next Question</button><button type="button" id="showResults">Show Results!</button><button type="button" id="tryAgain">Try Again?</button>
+<input type="submit" id="submitButton" value="Submit"></input><button type="button" id="nextQuestion">Next Question</button><button type="button" id="showResults">Show Results!</button><button type="button" id="tryAgain">Try Again?</button>
 <br/><br/>
 <span id="rejoinder"></span>
 
