@@ -54,9 +54,10 @@ $(document).ready(function() {
 		randNum2 = getRandomInt(LOWRANGE,HIRANGE);
 		multiplier = randNum1;
 		multiplicand = randNum2;
+		
 		sum = randNum1 + randNum2;
 		tryCounter = 1;
-		if randNum1 < randNum2
+		if (randNum1 < randNum2)
 		{
 			swap = randNum1;
 			randNum1 = randNum2;
@@ -64,12 +65,8 @@ $(document).ready(function() {
 		}
 		$("#multiplicand").text(randNum1);
 		$("#multiplier").text(randNum2);
-		//if (menuChoice == multiplication) {
 		
-		correctAnswer = sum; //replace with product }
-
-		//elseif (menuchoice == division){
-		//correctAnswer = quotient}
+		correctAnswer = sum; 
 		$("#correctAnswer").text(correctAnswer);
 		$("#currentQuestion").css('display','inline');
 		$("#currentQuestion").text(currentQuestion);
