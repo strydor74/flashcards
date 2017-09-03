@@ -19,9 +19,8 @@ Brynn's Math Page
 $(document).ready(function() {
     console.log( "ready!" );
 
-	var divisor1, divisor2, product, quotient, multiplier, multiplicand, randNum1, randNum2;
-	var LOWRANGE = 1;
-	var HIRANGE = 12;
+	var multiplier;
+	var multiplicand;
 	var tryCounter = 0;
 	var correctAnswer;
 	var totalIncorrect = 0;
@@ -34,6 +33,8 @@ $(document).ready(function() {
 	function getRandomInt(min, max) {
 	    return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
+
+
 
 	function resetPage() {
 	  $("#qtext").text("Question ");
@@ -50,20 +51,12 @@ $(document).ready(function() {
 
 	function initPage() {
 		currentQuestion++;
-		randNum1 = getRandomInt(LOWRANGE,HIRANGE);
-		randNum2 = getRandomInt(LOWRANGE,HIRANGE);
-		multiplier = randNum1;
-		multiplicand = randNum2;
-		
+		multiplier = getRandomInt(1,12);
+		multiplicand = getRandomInt(1,12);
 		tryCounter = 1;
 		$("#multiplicand").text(multiplicand);
 		$("#multiplier").text(multiplier);
-		//if (menuChoice == multiplication) {
-		
-		correctAnswer = (multiplier * multiplicand); //replace with product }
-
-		//elseif (menuchoice == division){
-		//correctAnswer = quotient}
+		correctAnswer = (multiplier * multiplicand);
 		$("#correctAnswer").text(correctAnswer);
 		$("#currentQuestion").css('display','inline');
 		$("#currentQuestion").text(currentQuestion);
@@ -139,6 +132,10 @@ $(document).ready(function() {
 	    	}
 		  	tryCounter++;
 	  	}
+
+	/*
+	Separate compound if statement and put logic in to show the show result button, and then reset page after a correct answer for the last question, or 3 incorrect responses. Verify that the data calculates and displays correctly.
+	*/
 	  
 		if (currentQuestion == totalQuestions)
 		{
@@ -196,6 +193,7 @@ $(document).ready(function() {
 	   	resetPage();
 	}); //end reset page on try again click
 
+
 	$("#showResults").click(function(){
 	   	showResults();
 	}); //end showResults
@@ -220,7 +218,7 @@ $(document).ready(function() {
 <span id="totalQuestions">Total number of questions for this quiz: </span></div>
 
 
-<p id="question">What is the solution to this equation?</p>
+<p id="question">What is the solution to the equation given?</p>
 
 <div id="problem">
   <span id="multiplicand"></span> x <span id="multiplier"></span> =  ?
