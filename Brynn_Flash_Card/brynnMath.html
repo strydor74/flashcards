@@ -19,7 +19,6 @@ Brynn's Math Page
 $(document).ready(function() {
     console.log( "ready!" );
 
-
 	var multiplier;
 	var multiplicand;
 	var tryCounter = 0;
@@ -50,8 +49,7 @@ $(document).ready(function() {
 	  initPage();
 	}
 
-	function initPage() 
-	{
+	function initPage() {
 		currentQuestion++;
 		multiplier = getRandomInt(1,12);
 		multiplicand = getRandomInt(1,12);
@@ -91,13 +89,10 @@ $(document).ready(function() {
 	    $("#tryAgain").css('display','block');
 	    $("#question").css('display', 'none');
 	    $("#problem").css('display', 'none');
-	    $("#submitAnswer").css('display','none');
-	    console.log("last Question,exiting statistics block, next line increments current question, value of current question is: "+currentQuestion);
-	    console.log("Leaving showResults funtion block, value of current question is is: "+currentQuestion);
+	    $("#submitAnswer").css('display','none');	    
 	}
 
-	function myFunction(theAnswer) 
-	{
+	function myFunction(theAnswer) {
 	  	correctAnswer = (multiplier * multiplicand);
 	  
 	  	if (currentQuestion < totalQuestions)
@@ -107,10 +102,7 @@ $(document).ready(function() {
 	      		if (theAnswer == correctAnswer)
 	      		{
 			        $("#rejoinder").text("Correct!");
-			        totalCorrect++;
-			        //currentQuestion++;
-			        //++currentQuestion;
-			        console.log("Increment totalCorrect, value now :"+totalCorrect);
+			        totalCorrect++;			        
 			        $("#nextQuestion").css('display','block');
 			        $("#submitButton").css('display','none');
 	        	}
@@ -135,21 +127,10 @@ $(document).ready(function() {
 			            $("#nextQuestion").css('display','block');
 			            $("#submitButton").css('display','none');
 			            totalIncorrect++;
-			            //currentQuestion++;
-			            //++currentQuestion;
-			            console.log("Increment totalInorrect, value now :"+totalIncorrect);
 		            }
-		        	else
-		        	{
-		        		console.log("Try Counter out of bounds.");
-		        	}
 	      		}
 	    	}
-		  	//++tryCounter;
 		  	tryCounter++;
-		  	console.log("increased tryCounter in question less than max if block, value now: "+tryCounter);
-		  	//currentQuestion++;
-			console.log("after incrementing current question, value of currentQuestion is now: "+currentQuestion);
 	  	}
 
 	/*
@@ -157,18 +138,13 @@ $(document).ready(function() {
 	*/
 	  
 		if (currentQuestion == totalQuestions)
-		//if ((currentQuestion == totalQuestions) && ((totalCorrect + totalIncorrect)==totalQuestions))
 		{
-		    console.log("last Question,Entered else if current == total");
 		    if (tryCounter <= 3)
 		    {
-		      	console.log("last Question,try counter less than 3 check, value of trycounter is now: "+tryCounter);
 		      	if (theAnswer == correctAnswer)
 		      	{
-			        console.log("Entered else if theAnswer == correct");
 			        $("#rejoinder").text("Correct!");
 			        totalCorrect++;
-			        console.log("Last Question, totalCorrect incremented, Value of totalCorrect now equals: "+totalCorrect);
 			        if (((totalCorrect + totalIncorrect)==totalQuestions) && (currentQuestion>0)&&(currentQuestion==totalQuestions))
 			        {
 			        	$("#showResults").css('display','block');
@@ -181,13 +157,11 @@ $(document).ready(function() {
 				    $("#submitAnswer").val("").focus();; 
 				    if (tryCounter == 1)
 				    {
-				      	console.log("Last Question,tc equals 1 -- incorrect answer try counter equals "+tryCounter);
 				      	$("#rejoinder").text("Sorry, but "+theAnswer+" isn't correct. Try again.");
 				     	firstAnswer = theAnswer;
 				    }
 				    if (tryCounter == 2)
 				    {
-				    	console.log("last Question,tc equals 2 -- incorrect answer try counter equals "+tryCounter);
 				    	if (theAnswer != firstAnswer)
 				      		$("#rejoinder").text("Sorry, but "+theAnswer+" isn't correct. Nor was your first answer of "+firstAnswer+". Try again.");
 				    	else
@@ -195,10 +169,8 @@ $(document).ready(function() {
 				    }
 				    if (tryCounter == 3)
 				    {
-				      	console.log("last Question,tc equals 3 -- incorrect answer try counter equals "+tryCounter);
 				      	totalIncorrect++;
 				      	$("#rejoinder").text("Sorry, but the correct answer is "+correctAnswer+". We would try another question but this is the last question in this quiz.");
-
 				      	if (((totalCorrect + totalIncorrect)==totalQuestions) && (currentQuestion>0)&&(currentQuestion==totalQuestions))
 				      	{
 				          	$("#showResults").css('display','block');
@@ -206,16 +178,8 @@ $(document).ready(function() {
 				          	$("#nextQuestion").css('display','none');
 				      	}
 				    }
-			    	else
-			    	{
-			    		console.log("Last Question,Try Counter out of bounds in the final question.");
-			    	}
-			  		console.log("Last Question,incorrect answer, try counter equals: "+tryCounter);
 	        	}
-	      		//++tryCounter;
 	      		tryCounter++;
-	      		console.log("last Question,increased try counter in current question is max question, value of try counter now: "+tryCounter);
-	      		console.log("last Question,exit else if trycounter leq 3, value of trycounter is:  "+tryCounter);
 	    	}    
 	  	}
 	}
@@ -232,13 +196,13 @@ $(document).ready(function() {
 
 	$("#showResults").click(function(){
 	   	showResults();
-	});
+	}); //end showResults
 
 	$("#nextQuestion").click(function(){
 	  initPage();
-	});
+	}); //end nextQuestion
 
-	initPage();
+	initPage(); //make sure page is properly initialized if refreshed
 
 });//end document ready
 </script>
