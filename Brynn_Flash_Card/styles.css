@@ -1,11 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Varela');
+
+html {
+	min-height: 100%;
+}
+
 body {
-    background-color: #343469;
+	background: #9ebdda; /* Old browsers */
+	background: -moz-linear-gradient(top, #9ebdda 0%, #265688 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #9ebdda 0%,#265688 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #9ebdda 0%,#265688 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ebdda', endColorstr='#265688',GradientType=0 ); /* IE6-9 */    font-family: 'Varela', sans-serif;
+    font-size:1.25em;
 }
 
 #mainDiv {
     width: 100%;
-    max-width: 480px;
-    background-color: #ffffff;
+    max-width: 640px;
+    background: #fff9e7; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #fff9e7 0%, #ffefbc 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover, #fff9e7 0%,#ffefbc 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center, #fff9e7 0%,#ffefbc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff9e7', endColorstr='#ffefbc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     padding: 20px 40px;
     margin: 30px auto;
     -webkit-border-radius: 10px;
@@ -14,4 +29,37 @@ body {
     -webkit-box-shadow: 1px 3px 27px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 3px 27px -4px rgba(0,0,0,0.75);
     box-shadow: 1px 3px 27px -4px rgba(0,0,0,0.75);
+    box-sizing: border-box;
+}
+
+fieldset {
+    border: none;
+    padding: 0px;
+    margin-bottom:25px;
+}
+
+legend {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+input[type=submit] {
+    background-color: #275789;
+    color: #ffffff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 7px 25px;
+    border: 0px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 10px;
+    border-radius: 3px;
+    cursor:pointer;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+}
+
+input[type=submit]:hover, input[type=submit]:focus {
+	background-color: #3b99fc;
+    font-size: 1.05rem;
 }
