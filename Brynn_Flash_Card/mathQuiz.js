@@ -15,6 +15,8 @@ $(document).ready(function() {
 	var currentQuestion = 0;
 	var myAnswer;
 	var firstAnswer;
+	var symbol="";
+	var firstNum, secondNum;
 
 	function getRandomInt(min, max) {
 	    return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -40,9 +42,6 @@ $(document).ready(function() {
 		randNum2 = getRandomInt(LOWRANGE_NUM2,HIRANGE_NUM2);
 		console.log( "randNum2: "+randNum2 );
 		
-		
-		sum = (randNum1 + randNum2);
-		console.log( "sum: "+sum );
 		tryCounter = 1;
 		if (randNum1 < randNum2)
 		{
@@ -50,19 +49,30 @@ $(document).ready(function() {
 			randNum1 = randNum2;
 			randNum2 = swap;
 		}
-		multiplier = randNum2;
-		multiplicand = randNum1;
-		console.log( "multiplier = randNum2: "+multiplier );
-		console.log( "multiplicand = randNum2: "+multiplicand );
-		$("#multiplicand").text(multiplicand);
-		$("#multiplier").text(multiplier);
-		//if (menuChoice == multiplication) {
-		
-		correctAnswer = (multiplier + multiplicand); //replace with product, sum, etc }
-		console.log( "correctAnswer: "+correctAnswer );
+		firstNum = randNum1;
+		secondNum = randNum2;
 
-		//elseif (menuchoice == division){
-		//correctAnswer = quotient}
+		console.log( "randNum1: "+firstNum );
+		console.log( "randNum2: "+secondNum );
+
+		sum = (firstNum + secondNum);
+		console.log( "sum: "+sum );
+
+		diff = (firstNum - secondNum);
+		console.log( "diff: "+sum );
+
+		product = (firstNum * secondNum);
+		console.log( "product: "+product);
+
+		quotient = (product / firstNum);
+		console.log( "quotient: "+quotient);
+		
+		
+		$("#smallerNum").text(firstNum);
+		$("#symbol").text(symbol);
+		$("#biggerNum").text(secondNum);
+		//correctAnswer = (multiplier + multiplicand);
+		//console.log( "correctAnswer: "+correctAnswer );
 		$("#correctAnswer").text(correctAnswer);
 		$("#currentQuestion").css('display','inline');
 		$("#currentQuestion").text(currentQuestion);
@@ -100,7 +110,7 @@ $(document).ready(function() {
 	}
 
 	function myFunction(theAnswer) {
-	  	correctAnswer = (multiplier + multiplicand);
+	  	//correctAnswer = (multiplier + multiplicand);
 	  
 	  	if (currentQuestion < totalQuestions)
 	  	{
@@ -236,75 +246,149 @@ $(document).ready(function() {
 	console.log("Query String: quizOperation = " + quizOperation);
 	console.log("Query String: quizLevel = " + quizLevel);
 	
-	if(quizOperation=="addition"){
+	if(quizOperation=="addition")
+	{
 		console.log("Set symbol to +");
+		symbol="+";
+		correctAnswer = sum; // is this where this should go?
 		
-		if(quizLevel=="1"){
-		console.log("Set variables for addition level 1");
+		if(quizLevel=="1")
+		{
+			console.log("Set variables for addition level 1");
+			var LOWRANGE_NUM1 = 1;
+			var HIRANGE_NUM1 = 12;
+			var LOWRANGE_NUM2 = 1;
+			var HIRANGE_NUM2 = 12;
 		}
-		else if(quizLevel=="2"){
-		console.log("Set variables for addition level 2");
+		else if(quizLevel=="2")
+		{
+			console.log("Set variables for addition level 1");
+			var LOWRANGE_NUM1 = 10;
+			var HIRANGE_NUM1 = 100;
+			var LOWRANGE_NUM2 = 10;
+			var HIRANGE_NUM2 = 100;
 		}
-		else if(quizLevel=="3"){
-		console.log("Set variables for addition level 3");
-		}
+		else if(quizLevel=="3")
+		{
+			console.log("Set variables for addition level 1");
+			var LOWRANGE_NUM1 = 1000;
+			var HIRANGE_NUM1 = 10000;
+			var LOWRANGE_NUM2 = 1000;
+			var HIRANGE_NUM2 = 10000;		}
 		else {
-		console.log("Redirect visitor selector page");
+			console.log("Redirect visitor selector page");
 		}
 	}
 	
-	else if(quizOperation=="subtraction"){
+	else if(quizOperation=="subtraction")
+	{
 		console.log("Set symbol to -");
+		symbol="-";
+		correctAnswer = diff;
 		
-		if(quizLevel=="1"){
-		console.log("Set variables for subtraction level 1");
+		if(quizLevel=="1")
+		{
+			console.log("Set variables for subtraction level 1");
+			var LOWRANGE_NUM1 = 1;
+			var HIRANGE_NUM1 = 12;
+			var LOWRANGE_NUM2 = 1;
+			var HIRANGE_NUM2 = 12;
 		}
-		else if(quizLevel=="2"){
-		console.log("Set variables for subtraction level 2");
+		else if(quizLevel=="2")
+		{
+			console.log("Set variables for subtraction level 2");
+			var LOWRANGE_NUM1 = 10;
+			var HIRANGE_NUM1 = 100;
+			var LOWRANGE_NUM2 = 10;
+			var HIRANGE_NUM2 = 100;
 		}
-		else if(quizLevel=="3"){
-		console.log("Set variables for subtraction level 3");
+		else if(quizLevel=="3")
+		{
+			console.log("Set variables for subtraction level 3");
+			var LOWRANGE_NUM1 = 100;
+			var HIRANGE_NUM1 = 10000;
+			var LOWRANGE_NUM2 = 100;
+			var HIRANGE_NUM2 = 10000;
 		}
 		else {
 		console.log("Redirect visitor selector page");
 		}
 	}
 	
-	else if(quizOperation=="multiplication"){
+	else if(quizOperation=="multiplication")
+	{
 		console.log("Set symbol to *");
+		symbol="*";
+		correctAnswer = product;
 		
-		if(quizLevel=="1"){
-		console.log("Set variables for multiplication level 1");
+		if(quizLevel=="1")
+		{
+			console.log("Set variables for multiplication level 1");
+			var LOWRANGE_NUM1 = 1;
+			var HIRANGE_NUM1 = 12;
+			var LOWRANGE_NUM2 = 1;
+			var HIRANGE_NUM2 = 12;
 		}
-		else if(quizLevel=="2"){
-		console.log("Set variables for multiplication level 2");
+		else if(quizLevel=="2")
+		{
+			console.log("Set variables for multiplication level 2");
+			var LOWRANGE_NUM1 = 10;
+			var HIRANGE_NUM1 = 100;
+			var LOWRANGE_NUM2 = 10;
+			var HIRANGE_NUM2 = 100;
 		}
-		else if(quizLevel=="3"){
-		console.log("Set variables for multiplication level 3");
+		else if(quizLevel=="3")
+		{
+			console.log("Set variables for multiplication level 3");
+			var LOWRANGE_NUM1 = 100;
+			var HIRANGE_NUM1 = 1000;
+			var LOWRANGE_NUM2 = 100;
+			var HIRANGE_NUM2 = 10000;
 		}
-		else {
+		else 
+		{
+		console.log("Redirect visitor selector page");
+		}
+	}
+
+	else if (quizOperation=="division")
+	{
+		console.log("Set symbol to divide sign");
+		symbol="/";
+		correctAnswer = quotient;
+		
+		if(quizLevel=="1")
+		{
+			console.log("Set variables for division level 1");
+			var LOWRANGE_NUM1 = 1;
+			var HIRANGE_NUM1 = 12;
+			var LOWRANGE_NUM2 = 1;
+			var HIRANGE_NUM2 = 12;
+		}
+		else if(quizLevel=="2")
+		{
+			console.log("Set variables for division level 2");
+			var LOWRANGE_NUM1 = 10;
+			var HIRANGE_NUM1 = 100;
+			var LOWRANGE_NUM2 = 1000;
+			var HIRANGE_NUM2 = 10000;
+		}
+		else if(quizLevel=="3")
+		{
+			console.log("Set variables for division level 3");
+			var LOWRANGE_NUM1 = 10;
+			var HIRANGE_NUM1 = 100;
+			var LOWRANGE_NUM2 = 10000;
+			var HIRANGE_NUM2 = 100000;
+		}
+		else 
+		{
 		console.log("Redirect visitor selector page");
 		}
 	}
 	
-	else if(quizOperation=="division"){
-		console.log("Set symbol to /");
-		
-		if(quizLevel=="1"){
-		console.log("Set variables for division level 1");
-		}
-		else if(quizLevel=="2"){
-		console.log("Set variables for division level 2");
-		}
-		else if(quizLevel=="3"){
-		console.log("Set variables for division level 3");
-		}
-		else {
-		console.log("Redirect visitor selector page");
-		}
-	}
-	
-	else {
+	else 
+	{
 		console.log("Redirect visitor selector page");
 	}
 
