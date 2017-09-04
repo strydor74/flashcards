@@ -232,9 +232,9 @@ $(document).ready(function() {
 		console.log( "quotient: "+quotient);
 		
 		
-		$("#smallerNum").text(firstNum);
+		$("#biggerNum").text(firstNum);
 		$("#symbol").text(symbol);
-		$("#biggerNum").text(secondNum);
+		$("#smallerNum").text(secondNum);
 		$("#correctAnswer").text(correctAnswer);
 		$("#currentQuestion").css('display','inline');
 		$("#currentQuestion").text(currentQuestion);
