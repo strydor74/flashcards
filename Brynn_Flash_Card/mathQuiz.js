@@ -249,7 +249,7 @@ $(document).ready(function() {
 		console.log("Set variables for addition level 3");
 		}
 		else {
-		console.log("Redirect visitor to Level state of selector page");
+		console.log("Redirect visitor selector page");
 		}
 	}
 	
@@ -266,7 +266,7 @@ $(document).ready(function() {
 		console.log("Set variables for subtraction level 3");
 		}
 		else {
-		console.log("Redirect visitor to Level state of selector page");
+		console.log("Redirect visitor selector page");
 		}
 	}
 	
@@ -283,7 +283,7 @@ $(document).ready(function() {
 		console.log("Set variables for multiplication level 3");
 		}
 		else {
-		console.log("Redirect visitor to Level state of selector page");
+		console.log("Redirect visitor selector page");
 		}
 	}
 	
@@ -300,12 +300,12 @@ $(document).ready(function() {
 		console.log("Set variables for division level 3");
 		}
 		else {
-		console.log("Redirect visitor to Level state of selector page");
+		console.log("Redirect visitor selector page");
 		}
 	}
 	
 	else {
-		console.log("Redirect visitor to Operation state of selector page");
+		console.log("Redirect visitor selector page");
 	}
 
 });//end document ready
