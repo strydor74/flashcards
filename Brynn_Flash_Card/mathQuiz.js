@@ -164,8 +164,8 @@ $(document).ready(function() {
 			console.log("Set variables for division level 2");
 			var LOWRANGE_NUM1 = 10;
 			var HIRANGE_NUM1 = 100;
-			var LOWRANGE_NUM2 = 1000;
-			var HIRANGE_NUM2 = 10000;
+			var LOWRANGE_NUM2 = 100;
+			var HIRANGE_NUM2 = 1000;
 		}
 		else if(quizLevel=="3")
 		{
@@ -228,13 +228,21 @@ $(document).ready(function() {
 		product = (firstNum * secondNum);
 		console.log( "product: "+product);
 
-		quotient = (product / firstNum);
+		quotient = (product / secondNum);
 		console.log( "quotient: "+quotient);
 		
-		
-		$("#biggerNum").text(firstNum);
-		$("#symbol").text(symbol);
-		$("#smallerNum").text(secondNum);
+		if(quizOperation=="division")
+		{
+			$("#biggerNum").text(product);
+			$("#symbol").text(symbol);
+			$("#smallerNum").text(secondNum);
+		}
+		else
+		{
+			$("#biggerNum").text(firstNum);
+			$("#symbol").text(symbol);
+			$("#smallerNum").text(secondNum);
+		}
 		$("#correctAnswer").text(correctAnswer);
 		$("#currentQuestion").css('display','inline');
 		$("#currentQuestion").text(currentQuestion);
