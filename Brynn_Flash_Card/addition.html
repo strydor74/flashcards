@@ -10,6 +10,11 @@
 
 $(document).ready(function() {
 
+//Temporary build of the query string for quiz page.
+var qsBuildOperator;
+var qsBuildLevel;
+
+
 });//end document ready
 </script>
 </head>
@@ -20,9 +25,9 @@ $(document).ready(function() {
 			<form id="operationMenu" action="#">
 				<fieldset>
 					<legend id="choiceTopic">What difficulty level would you like? </legend>
-  					<label><input type="radio" name="operation" class="lvl_1" value="addition_lvl1.html" checked> Level 1<br/></label>
-  					<label><input type="radio" name="operation" class="lvl_2" value="addition_lvl2.html"> Level 2<br/></label>
-  					<label><input type="radio" name="operation" class="lvl_3" value="addition_lvl3.html"> Level 3<br/></label>
+  					<label><input type="radio" name="operation" class="lvl_1" value="mathQuiz.html?quizOperation=addition&quizLevel=1" checked> Level 1<br/></label>
+  					<label><input type="radio" name="operation" class="lvl_2" value="mathQuiz.html?quizOperation=addition&quizLevel=2"> Level 2<br/></label>
+  					<label><input type="radio" name="operation" class="lvl_3" value="mathQuiz.html?quizOperation=addition&quizLevel=3"> Level 3<br/></label>
   				</fieldset>
   				<input type="submit" value="Get Started!"/>
 			</form>

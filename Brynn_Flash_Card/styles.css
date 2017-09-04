@@ -65,3 +65,5 @@ button[type=button]:hover, button[type=button]:focus {
 	background-color: #3b99fc;
     font-size: 1.05rem;
 }
+
+#levelMenu { display:none; }

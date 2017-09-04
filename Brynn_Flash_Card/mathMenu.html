@@ -21,13 +21,24 @@ $(document).ready(function() {
 			<form id="operationMenu" action="#">
 				<fieldset>
 					<legend id="choiceTopic">What math topic are we working on today? </legend>
-  					<input type="radio" name="operation" class="addition" id="addition" value="addition.html" /> <label for="addition">Addition</label><br/>
-  					<input type="radio" name="operation" class="subtraction" id="subtraction" value="subtraction.html" /> <label for="subtraction">Subtraction</label><br/>
-  					<input type="radio" name="operation" class="multiplication" id="multiplication" value="multiplication.html" checked /> <label for="multiplication">Multiplication</label><br/>
-  					<input type="radio" name="operation" class="division" id="division" value="division.html" /> <label for="division">Division</label><br/>
+  					<input type="radio" name="operation" class="addition" id="addition" value="addition" checked /> <label for="addition">Addition</label><br/>
+  					<input type="radio" name="operation" class="subtraction" id="subtraction" value="subtraction" /> <label for="subtraction">Subtraction</label><br/>
+  					<input type="radio" name="operation" class="multiplication" id="multiplication" value="multiplication" /> <label for="multiplication">Multiplication</label><br/>
+  					<input type="radio" name="operation" class="division" id="division" value="division" /> <label for="division">Division</label><br/>
   				</fieldset>		
   				<input type="submit" value="Next >">
 			</form>
+			
+			<form id="levelMenu" action="#">
+				<fieldset>
+					<legend id="choiceTopic">What difficulty level would you like? </legend>
+  					<label><input type="radio" name="operation" class="lvl_1" value="1" checked> Level 1<br/></label>
+  					<label><input type="radio" name="operation" class="lvl_2" value="2"> Level 2<br/></label>
+  					<label><input type="radio" name="operation" class="lvl_3" value="3"> Level 3<br/></label>
+  				</fieldset>
+  				<input type="submit" value="Get Started!"/>
+			</form>
+			
 		</div>
 	</main>
 </body>
